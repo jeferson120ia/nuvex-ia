@@ -1873,7 +1873,7 @@ SUPABASE_KEY
 
       cart.forEach(item => {
 
-        const product =
+        let product =
           products.find(
             p => p.id === item.id
           );
@@ -2505,6 +2505,38 @@ SUPABASE_KEY
 
     renderCart();
 
+
+async function loadProductsFromSupabase() {
+  try {
+    const { data, error } = await supabaseClient
+      .from("products")
+      .select("id, name, description, price, category, image_url, purchase_url")
+      .eq("is_published", true);
+
+    if (error) throw error;
+    if (!data || data.length === 0) return;
+
+    products = data.map((p) => ({
+      id: p.id,
+      title: p.name,
+      category: p.category || "Outros",
+      price: Number(p.price),
+      rating: 4.8,
+      sales: 0,
+      icon: "📦",
+      description: p.description || "",
+      image_url: p.image_url,
+      purchase_url: p.purchase_url
+    }));
+
+    applyFilters();
+    renderCart();
+  } catch (error) {
+    console.error("Erro ao carregar produtos:", error);
+  }
+}
+
+loadProductsFromSupabase();
 
     const savedUser =
       JSON.parse(
