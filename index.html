@@ -1654,6 +1654,89 @@ const supabaseClient = window.supabase.createClient(
        PRODUTOS
     ================================= */
 
+let products = [
+  {
+    id: 1,
+    title: "100 Prompts para ChatGPT",
+    category: "IA",
+    price: 19.90,
+    rating: 4.9,
+    sales: 950,
+    icon: "🤖",
+    description: "Coleção de prompts para aumentar sua produtividade com IA."
+  },
+  {
+    id: 2,
+    title: "Kit de Templates para Instagram",
+    category: "Templates",
+    price: 29.90,
+    rating: 4.8,
+    sales: 740,
+    icon: "🎨",
+    description: "Templates modernos para deixar seu Instagram profissional."
+  },
+  {
+    id: 3,
+    title: "Planilha de Controle Financeiro",
+    category: "Planilhas",
+    price: 14.90,
+    rating: 4.9,
+    sales: 620,
+    icon: "📊",
+    description: "Organize seus gastos, receitas e metas financeiras."
+  },
+  {
+    id: 4,
+    title: "Curso: Começando no Digital",
+    category: "Cursos",
+    price: 49.90,
+    rating: 4.7,
+    sales: 520,
+    icon: "🎓",
+    description: "Aprenda os primeiros passos para começar no mercado digital."
+  },
+  {
+    id: 5,
+    title: "Pack de Templates para Canva",
+    category: "Templates",
+    price: 24.90,
+    rating: 4.8,
+    sales: 480,
+    icon: "✨",
+    description: "Centenas de modelos editáveis para seus projetos."
+  },
+  {
+    id: 6,
+    title: "Guia de Produtividade",
+    category: "Produtividade",
+    price: 17.90,
+    rating: 4.6,
+    sales: 410,
+    icon: "⚡",
+    description: "Métodos simples para organizar melhor seu tempo."
+  },
+  {
+    id: 7,
+    title: "Manual de Marketing Digital",
+    category: "E-books",
+    price: 27.90,
+    rating: 4.8,
+    sales: 390,
+    icon: "📖",
+    description: "Estratégias essenciais para começar no marketing digital."
+  },
+  {
+    id: 8,
+    title: "E-book: Renda Extra Online",
+    category: "E-books",
+    price: 21.90,
+    rating: 4.7,
+    sales: 350,
+    icon: "💰",
+    description: "Ideias e estratégias para criar novas fontes de renda."
+  }
+];
+
     function renderProducts(list = products) {
 
       productsContainer.innerHTML = "";
