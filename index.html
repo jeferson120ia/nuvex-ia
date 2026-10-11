@@ -1814,15 +1814,16 @@ SUPABASE_KEY
     }
 
 
-    function removeFromCart(id) {
+    
+function removeFromCart(id) {
+   cart.filter(
+    item => String(item.id) !== String(id)
+  );
 
-      cart =
-    cart = cart.filter(item => String(item.id) !== String(id));
-      saveCart();
+  saveCart();
+  renderCart();
+}
 
-      renderCart();
-
-    }
 
 
     function changeQuantity(id, amount) {
