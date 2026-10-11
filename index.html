@@ -1817,8 +1817,7 @@ SUPABASE_KEY
     function removeFromCart(id) {
 
       cart =
-        cart.filter(item => item.id !== id);
-
+    cart = cart.filter(item => String(item.id) !== String(id));
       saveCart();
 
       renderCart();
@@ -1829,8 +1828,8 @@ SUPABASE_KEY
     function changeQuantity(id, amount) {
 
       const item =
-        cart.find(item => item.id === id);
-
+const item =
+  cart.find(item => String(item.id) === String(id));
       if (!item) return;
 
       item.quantity += amount;
@@ -1875,7 +1874,7 @@ SUPABASE_KEY
 
         let product =
           products.find(
-            p => p.id === item.id
+               p => String(p.id) === String(item.id)
           );
 
         if (!product) return;
